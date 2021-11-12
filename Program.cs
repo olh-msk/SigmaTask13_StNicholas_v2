@@ -9,6 +9,9 @@ namespace SigmaTask13_StNicholas_v2
         {
             StNicholas stNicholas = StNicholas.Instance();
 
+            //створюємо дітей
+            //Це можна реалізувати через зчитування з файлу
+            //але я виріши не ускладнювати і зробити простим способом
             List<Child> childList = new List<Child>();
 
             childList.Add(new Child());
@@ -35,11 +38,8 @@ namespace SigmaTask13_StNicholas_v2
                 stNicholas.AddKid(kid);
             }
 
-            bool onlyGoodKids = true;
-
-            Console.WriteLine(stNicholas.GivePresents(onlyGoodKids));
-
-
+            //виводимо подарунки
+            Console.WriteLine(stNicholas.GiveAgeBasedPresents());
         }
     }
 }

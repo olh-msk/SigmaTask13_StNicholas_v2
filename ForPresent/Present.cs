@@ -8,8 +8,8 @@ namespace SigmaTask13_StNicholas_v2
     {
         public void MakePresent();
         public void MakeBadPresent();
-
     }
+
     class Present : IOperationMakePresent
     {
         public Toy Toy { get; set; }
@@ -28,7 +28,7 @@ namespace SigmaTask13_StNicholas_v2
         public void MakeBadPresent()
         {
             this.EatenGift = new EatenGift();
-            this.Toy = new Toy();
+            this.Toy = new SimpleToy();
             this.Wish = new Wish();
 
             this.EatenGift.Name = "Rust";
@@ -40,7 +40,7 @@ namespace SigmaTask13_StNicholas_v2
         {
             string res = "";
 
-            res += string.Format("Toy: {0}\tWish: {1}\t\tEaten Gift: {2}", Toy.Name, Wish.Message, EatenGift.Name);
+            res += string.Format("Toy: {0}\t\tWish: {1}\t\tEaten Gift: {2}", Toy.Name, Wish.Message, EatenGift.Name);
 
             return res;
         }

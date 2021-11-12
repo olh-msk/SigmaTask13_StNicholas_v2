@@ -4,9 +4,10 @@ using System.Text;
 
 namespace SigmaTask13_StNicholas_v2
 {
+    #region [Factories]
     interface AbstractPresentsFactory
     {
-        public Toy CreateToy();
+        public SimpleToy CreateToy();
         public Wish CreateWish();
         public EatenGift CreateEatenFift();
     }
@@ -18,7 +19,7 @@ namespace SigmaTask13_StNicholas_v2
             return new EatenGift();
         }
 
-        public Toy CreateToy()
+        public SimpleToy CreateToy()
         {
             return new BoyToy();
         }
@@ -36,7 +37,7 @@ namespace SigmaTask13_StNicholas_v2
             return new EatenGift();
         }
 
-        public Toy CreateToy()
+        public SimpleToy CreateToy()
         {
             return new GirlToy();
         }
@@ -46,4 +47,5 @@ namespace SigmaTask13_StNicholas_v2
             return new GirlWish();
         }
     }
+    #endregion
 }

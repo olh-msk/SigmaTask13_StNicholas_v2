@@ -13,6 +13,7 @@ namespace SigmaTask13_StNicholas_v2
         public string Name { get; set; }
         //true - хлопець
         public bool Gender { get; set; }
+        public int Age { get; set; }
 
         public int GoodActions{get;set;}
         public int BadActions{get;set;}
@@ -23,6 +24,7 @@ namespace SigmaTask13_StNicholas_v2
         {
             Name = "doesn`t have";
             Gender = true;
+            Age = GetRandomAge();
 
             GoodActions = GetRandomNumOfAction();
             BadActions = GetRandomNumOfAction();
@@ -35,11 +37,15 @@ namespace SigmaTask13_StNicholas_v2
         {
             return GoodActions - BadActions >= 0 ? true : false;
         }
-
         public int GetRandomNumOfAction()
         {
             Random r = new Random();
             return r.Next(0,10);
+        }
+        public int GetRandomAge()
+        {
+            Random r = new Random();
+            return r.Next(1, 22);
         }
     }
 }

@@ -4,12 +4,18 @@ using System.Text;
 
 namespace SigmaTask13_StNicholas_v2
 {
+    #region [StNicholas operations]
     interface IOperationAddRemoveKid
     {
         public bool AddKid(Child chl);
         public bool RemoveKid(Child chl);
     }
-    class StNicholas : IOperationAddRemoveKid
+    interface IOperationGivePresents
+    {
+        public string GivePresents(bool onlyGood);
+        public string GiveAgeBasedPresents();
+    }
+    class StNicholas : IOperationAddRemoveKid, IOperationGivePresents
     {
         private static StNicholas instance;
 
@@ -32,8 +38,7 @@ namespace SigmaTask13_StNicholas_v2
             return instance;
         }
 
-
-
+        //прості подарки------------
         public string GivePresents(bool onlyGood)
         {
             string res = "";
@@ -101,6 +106,33 @@ namespace SigmaTask13_StNicholas_v2
             return res;
         }
 
+        //подарки залежно від віку-------
+        public string GiveAgeBasedPresents()
+        {
+            string res = "";
+
+
+            foreach(Child kid in currentChilds)
+            {
+                if(kid.Gender == true)
+                {
+                    present.Factory = new BoyPresentsFactory();
+                    present.MakePresent();
+                    //корегуємо іграшку відносно віку і статі
+                    present.Toy = new AgeToyAdapter(kid.Age,kid.Gender);
+                    res += MakeStringWithKid(kid);
+                }
+                else
+                {
+                    present.Factory = new GirlPresentsFactory();
+                    present.MakePresent();
+                    //корегуємо іграшку відносно віку і статі
+                    present.Toy = new AgeToyAdapter(kid.Age, kid.Gender);
+                    res += MakeStringWithKid(kid);
+                }
+            }
+            return res;
+        }
         public string MakeStringWithKid(Child child)
         {
             string res = "";
@@ -109,7 +141,7 @@ namespace SigmaTask13_StNicholas_v2
             {
                 gender = "boy";
             }
-            res += string.Format("Name: {0}\tGender: {1}\t\tHas present:\n{2}\n\n", child.Name,gender, present.ToString());
+            res += string.Format("Name: {0}\tGender: {1}\tAge: {2}\nHas present:\n{3}\n\n", child.Name,gender,child.Age, present.ToString());
             return res;
         }
 
@@ -126,4 +158,5 @@ namespace SigmaTask13_StNicholas_v2
             return count < currentChilds.Count;
         }
     }
+    #endregion
 }
