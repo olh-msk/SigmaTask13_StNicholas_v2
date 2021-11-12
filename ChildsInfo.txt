@@ -1,0 +1,6 @@
+Oleh true
+Nazar true
+Olya false
+Nada false
+Denus true
+Sophia false

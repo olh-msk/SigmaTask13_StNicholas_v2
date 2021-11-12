@@ -4,6 +4,7 @@ using System.Text;
 
 namespace SigmaTask13_StNicholas_v2
 {
+    #region [Presents and operatons]
     interface IOperationMakePresent
     {
         public void MakePresent();
@@ -45,5 +46,6 @@ namespace SigmaTask13_StNicholas_v2
             return res;
         }
     }
+    #endregion
 }
 
