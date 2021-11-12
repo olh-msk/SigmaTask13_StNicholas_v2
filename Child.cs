@@ -6,7 +6,7 @@ namespace SigmaTask13_StNicholas_v2
 {
     interface IOperationSendRequest
     {
-        public void SendRequest();
+        public void SendRequestToStNicholas();
     }
     class Child:IOperationSendRequest
     {
@@ -29,7 +29,7 @@ namespace SigmaTask13_StNicholas_v2
             GoodActions = GetRandomNumOfAction();
             BadActions = GetRandomNumOfAction();
         }
-        public void SendRequest()
+        public void SendRequestToStNicholas()
         {
             StNicholas.Instance().AddKid(this);
         }

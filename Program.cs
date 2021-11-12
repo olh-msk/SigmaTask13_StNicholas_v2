@@ -25,7 +25,7 @@ namespace SigmaTask13_StNicholas_v2
                     Boolean.TryParse(lineSplit[1],out gen);
                     kid.Gender = gen;
 
-                    stNicholas.AddKid(kid);
+                    kid.SendRequestToStNicholas();
                 }
             }
 
